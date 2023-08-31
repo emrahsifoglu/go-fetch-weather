@@ -43,5 +43,5 @@ func handleRequest(w http.ResponseWriter, r *http.Request) {
 
 func main() {
     http.HandleFunc("/alerts", handleRequest)
-    http.ListenAndServe(":9090", nil)
+    log.Fatal(http.ListenAndServe(":8081", nil))
 }

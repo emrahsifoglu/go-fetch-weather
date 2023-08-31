@@ -2,11 +2,16 @@
 Go application that fetches weather alerts and exposes data via REST API 
 
 ## 🙇 Application Requirement
-1.  Install Go via https://go.dev/doc/install
+1. Install Docker Desktop via https://docs.docker.com/desktop/
+2. Install Go via https://go.dev/doc/install
 
-2. Once installed, Please check via below command
+Once installed, Please check via below commands
 ```zsh   
 go version
+```
+
+```zsh   
+docker version
 ```
 
 ## 🛠️ Start the application locally
@@ -19,12 +24,26 @@ go version
 make run
 ```
 
+## How run inside a Docker container,
+
+Open a terminal and run comand in order to build an image
+
+```zsh
+docker build -t go-fetch-weather:local .
+```
+
+Comand below will run the image inside a container
+
+```zsh
+docker run --rm -p 8081:8081 -it go-fetch-weather:local
+```
+
 ## How to use
 
 Open a terminal and run comand below
 
 ```zsh
-curl --location 'localhost:9090/alerts?area=NY'
+curl --location 'localhost:8081/alerts?area=NY'
 ```
 
 ## Resources
