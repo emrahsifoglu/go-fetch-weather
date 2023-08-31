@@ -6,6 +6,9 @@ ADD . /app
 
 WORKDIR /app
 
+RUN go mod download
 RUN go build -o go-fetch-weather ./cmd
+
+EXPOSE 8081
 
 CMD ["/app/go-fetch-weather"]
